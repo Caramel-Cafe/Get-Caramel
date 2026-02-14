@@ -1,0 +1,48 @@
+name: Release Promotion
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        type: choice
+        options:
+          - staging
+          - production
+      release_sha:
+        description: 'Commit SHA to release'
+        required: true
+      previous_release_sha:
+        description: 'Previous release SHA (for rollback reference)'
+        required: true
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+
+    environment: ${{ github.event.inputs.environment }}
+
+    steps:
+      - name: Checkout selected commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.release_sha }}
+
+      - name: Show release info
+        run: |
+          echo "Releasing SHA: ${{ github.event.inputs.release_sha }}"
+          echo "Previous release: ${{ github.event.inputs.previous_release_sha }}"
+          echo "Environment: ${{ github.event.inputs.environment }}"
+
+      - name: Build step placeholder
+        run: |
+          echo "Add your build commands here"
+
+      - name: Test step placeholder
+        run: |
+          echo "Add your test commands here"
+
+      - name: Deploy placeholder
+        run: |
+          echo "Add your deploy commands here"
