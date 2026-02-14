@@ -1,0 +1,15 @@
+
+> @get-caramel/vendor-web@0.1.0 test C:\Users\siemc\OneDrive\Music\Get Caramel\apps\vendor-web
+> pnpm exec tsc -p tsconfig.json --noEmit && node --test test/**/*.test.js
+
+✔ vendor auth requests hit login/register with vendor_owner role (1.4751ms)
+✔ vendor dashboard loads queue, notifications, payouts, invoices, and reviews (0.2159ms)
+✔ vendor order actions include accept/preparing/ready/reject routes (0.2648ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 265.9235

@@ -1,0 +1,29 @@
+
+> @get-caramel/admin-web@0.1.0 build C:\Users\siemc\OneDrive\Music\Get Caramel\apps\admin-web
+> next build
+
+  ▲ Next.js 14.2.15
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/4) ...
+   Generating static pages (1/4) 
+   Generating static pages (2/4) 
+   Generating static pages (3/4) 
+ ✓ Generating static pages (4/4)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    16.2 kB         103 kB
+└ ○ /_not-found                          871 B            88 kB
++ First Load JS shared by all            87.1 kB
+  ├ chunks/319-b9f7b8b031219f4e.js       31.6 kB
+  ├ chunks/d48e3b6c-d17039b9a110fbfa.js  53.6 kB
+  └ other shared chunks (total)          1.9 kB
+
+
+○  (Static)  prerendered as static content
+

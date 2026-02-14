@@ -1,0 +1,117 @@
+
+> @get-caramel/payment-service@0.1.0 dev C:\Users\siemc\OneDrive\Music\Get Caramel\services\payment-service
+> nest start --watch
+
+[2J[3J[H[[90m2:44:09 pm[0m] Starting compilation in watch mode...
+
+[[90m2:44:13 pm[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +8ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPaymentController {/}:[39m[38;5;3m +74ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/intents, POST} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/confirm, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/webhook, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/order/:orderId, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/customer/:customerId, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/customer/:customerId/paged, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/wallets/:customerId, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/wallets/topup, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/run, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/vendor/:vendorId/summary, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/overview, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/queue/status, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/queue/dead-letter, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/invoices/vendor/:vendorId, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/invoices/vendor/:vendorId/paged, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/invoices/order/:orderId, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHealthController {/health}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuditController {/audit}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/audit/events, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/audit/summary, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMetricsController {/metrics}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 16168  - [39m14/02/2026, 2:44:15 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/metrics, GET} route[39m[38;5;3m +1ms[39m
+[2J[3J[H[[90m2:47:54 pm[0m] File change detected. Starting incremental compilation...
+
+[[90m2:47:54 pm[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +9ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPaymentController {/}:[39m[38;5;3m +36ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/intents, POST} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/confirm, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/webhook, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/order/:orderId, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/customer/:customerId, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/customer/:customerId/paged, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/wallets/:customerId, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/wallets/topup, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/run, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/vendor/:vendorId/summary, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/overview, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/queue/status, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:55 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/queue/dead-letter, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:56 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/invoices/vendor/:vendorId, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:56 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/invoices/vendor/:vendorId/paged, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:56 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/invoices/order/:orderId, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:56 pm [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHealthController {/health}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:56 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:56 pm [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuditController {/audit}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:56 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/audit/events, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:56 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/audit/summary, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:56 pm [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMetricsController {/metrics}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:56 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/metrics, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 31288  - [39m14/02/2026, 2:47:56 pm [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +1ms[39m
+{"level":30,"time":1771069676016,"pid":31288,"hostname":"Wedi_Mussie","msg":"Server listening at http://0.0.0.0:4004"}
+[2J[3J[H[[90m2:53:30 pm[0m] File change detected. Starting incremental compilation...
+
+[[90m2:53:31 pm[0m] Found 0 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:53:31 pm[0m] File change detected. Starting incremental compilation...
+
+[[90m2:53:32 pm[0m] Found 0 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:53:34 pm[0m] File change detected. Starting incremental compilation...
+
+[[90m2:53:35 pm[0m] Found 0 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:53:40 pm[0m] File change detected. Starting incremental compilation...
+
+[[90m2:53:41 pm[0m] Found 0 errors. Watching for file changes.
+
+[2J[3J[H[[90m2:53:41 pm[0m] File change detected. Starting incremental compilation...
+
+[[90m2:53:42 pm[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +21ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPaymentController {/}:[39m[38;5;3m +113ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/intents, POST} route[39m[38;5;3m +8ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/confirm, POST} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/webhook, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/order/:orderId, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/customer/:customerId, GET} route[39m[38;5;3m +6ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payments/customer/:customerId/paged, GET} route[39m[38;5;3m +5ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/wallets/:customerId, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/wallets/topup, POST} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/run, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/vendor/:vendorId/summary, GET} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/overview, GET} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/queue/status, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payouts/queue/dead-letter, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/invoices/vendor/:vendorId, GET} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/invoices/vendor/:vendorId/paged, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/invoices/order/:orderId, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHealthController {/health}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuditController {/audit}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/audit/events, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/audit/summary, GET} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMetricsController {/metrics}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/metrics, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 11272  - [39m14/02/2026, 2:53:47 pm [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +5ms[39m
+{"level":30,"time":1771070027592,"pid":11272,"hostname":"Wedi_Mussie","msg":"Server listening at http://0.0.0.0:4004"}
+C:\Users\siemc\OneDrive\Music\Get Caramel\services\payment-service:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @get-caramel/payment-service@0.1.0 dev: `nest start --watch`
+Exit status 3221225786

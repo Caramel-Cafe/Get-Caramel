@@ -1,0 +1,25 @@
+{
+  "name": "@get-caramel/vendor-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "lint": "next lint",
+    "test": "pnpm exec tsc -p tsconfig.json --noEmit && node --test test/**/*.test.js"
+  },
+  "dependencies": {
+    "@get-caramel/types": "workspace:*",
+    "next": "14.2.15",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.6",
+    "@types/react": "^18.3.9",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.6.3"
+  }
+}

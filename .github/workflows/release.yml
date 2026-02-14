@@ -1,0 +1,147 @@
+name: Release Promotion
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Target environment"
+        required: true
+        type: choice
+        options:
+          - staging
+          - production
+      release_sha:
+        description: "Git SHA to deploy"
+        required: true
+        type: string
+      previous_release_sha:
+        description: "Previous SHA used for rollback fallback"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push service images
+        env:
+          RELEASE_SHA: ${{ github.event.inputs.release_sha }}
+          IMAGE_REGISTRY: ${{ vars.IMAGE_REGISTRY || 'ghcr.io/get-caramel' }}
+        run: bash ops/release/build-images.sh
+
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: v1.30.0
+
+      - name: Configure kubeconfig
+        env:
+          KUBE_CONFIG_B64: ${{ secrets.KUBE_CONFIG_B64 }}
+        run: |
+          if [ -z "${KUBE_CONFIG_B64}" ]; then
+            echo "KUBE_CONFIG_B64 secret is required"
+            exit 1
+          fi
+          mkdir -p "${HOME}/.kube"
+          echo "${KUBE_CONFIG_B64}" | base64 -d > "${HOME}/.kube/config"
+          chmod 600 "${HOME}/.kube/config"
+
+      - name: Deploy release
+        env:
+          IMAGE_REGISTRY: ${{ vars.IMAGE_REGISTRY || 'ghcr.io/get-caramel' }}
+        run: bash ops/release/deploy.sh "${{ github.event.inputs.environment }}" "${{ github.event.inputs.release_sha }}"
+
+      - name: Upload release state
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-state-${{ github.event.inputs.environment }}
+          path: ops/release/state/${{ github.event.inputs.environment }}.txt
+
+  smoke:
+    runs-on: ubuntu-latest
+    needs: deploy
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: v1.30.0
+
+      - name: Configure kubeconfig
+        env:
+          KUBE_CONFIG_B64: ${{ secrets.KUBE_CONFIG_B64 }}
+        run: |
+          if [ -z "${KUBE_CONFIG_B64}" ]; then
+            echo "KUBE_CONFIG_B64 secret is required"
+            exit 1
+          fi
+          mkdir -p "${HOME}/.kube"
+          echo "${KUBE_CONFIG_B64}" | base64 -d > "${HOME}/.kube/config"
+          chmod 600 "${HOME}/.kube/config"
+
+      - name: Smoke checks
+        run: bash ops/release/smoke.sh "${{ github.event.inputs.environment }}"
+
+  rollback:
+    runs-on: ubuntu-latest
+    needs: [deploy, smoke]
+    if: ${{ failure() && github.event.inputs.previous_release_sha != '' }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: v1.30.0
+
+      - name: Configure kubeconfig
+        env:
+          KUBE_CONFIG_B64: ${{ secrets.KUBE_CONFIG_B64 }}
+        run: |
+          if [ -z "${KUBE_CONFIG_B64}" ]; then
+            echo "KUBE_CONFIG_B64 secret is required"
+            exit 1
+          fi
+          mkdir -p "${HOME}/.kube"
+          echo "${KUBE_CONFIG_B64}" | base64 -d > "${HOME}/.kube/config"
+          chmod 600 "${HOME}/.kube/config"
+
+      - name: Rollback to previous release
+        env:
+          IMAGE_REGISTRY: ${{ vars.IMAGE_REGISTRY || 'ghcr.io/get-caramel' }}
+        run: bash ops/release/rollback.sh "${{ github.event.inputs.environment }}" "${{ github.event.inputs.previous_release_sha }}"

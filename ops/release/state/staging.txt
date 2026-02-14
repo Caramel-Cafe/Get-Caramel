@@ -1,0 +1,3 @@
+﻿environment=staging
+release_sha=test-sha
+deployed_at=2026-02-13T00:00:00Z

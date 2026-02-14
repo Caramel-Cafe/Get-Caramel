@@ -1,0 +1,8 @@
+
+> @get-caramel/database@0.1.0 test C:\Users\siemc\OneDrive\Music\Get Caramel\packages\database
+> pnpm build
+
+
+> @get-caramel/database@0.1.0 build C:\Users\siemc\OneDrive\Music\Get Caramel\packages\database
+> tsc -p tsconfig.json
+

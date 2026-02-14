@@ -1,0 +1,21 @@
+
+> @get-caramel/auth-service@0.1.0 test C:\Users\siemc\OneDrive\Music\Get Caramel\services\auth-service
+> pnpm build && node --test test/**/*.test.js
+
+
+> @get-caramel/auth-service@0.1.0 build C:\Users\siemc\OneDrive\Music\Get Caramel\services\auth-service
+> nest build
+
+✔ blocks direct admin registration on /register flow (50.1826ms)
+✔ rejects registerAdmin when invite code is invalid (0.8392ms)
+✔ registerAdmin succeeds with valid invite code and issues access token (8.5065ms)
+✔ login rejects invalid credentials (0.684ms)
+✔ login succeeds and records success audit event (1.5886ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5875.67

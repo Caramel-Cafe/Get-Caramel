@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build monorepo
+        run: pnpm build
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: API gateway focused tests
+        run: pnpm --filter @get-caramel/api-gateway test
+
+      - name: Typecheck customer mobile
+        run: pnpm --filter @get-caramel/customer-mobile exec tsc -p tsconfig.json --noEmit
+
+      - name: Typecheck courier mobile
+        run: pnpm --filter @get-caramel/courier-mobile exec tsc -p tsconfig.json --noEmit
+
+      - name: Build metadata
+        run: |
+          mkdir -p artifacts
+          echo "sha=${GITHUB_SHA}" > artifacts/build-metadata.txt
+          echo "ref=${GITHUB_REF}" >> artifacts/build-metadata.txt
+          echo "run_id=${GITHUB_RUN_ID}" >> artifacts/build-metadata.txt
+          echo "built_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> artifacts/build-metadata.txt
+
+      - name: Upload build metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-metadata
+          path: artifacts/build-metadata.txt

@@ -1,0 +1,24 @@
+{
+  "name": "@get-caramel/courier-mobile",
+  "version": "0.1.0",
+  "private": true,
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "dev": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web",
+    "lint": "echo 'no lint yet'",
+    "test": "pnpm exec tsc -p tsconfig.json --noEmit && node --test test/**/*.test.js"
+  },
+  "dependencies": {
+    "@get-caramel/types": "workspace:*",
+    "expo": "^51.0.31",
+    "react": "18.2.0",
+    "react-native": "0.74.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.9",
+    "typescript": "^5.6.3"
+  }
+}

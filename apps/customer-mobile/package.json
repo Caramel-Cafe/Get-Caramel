@@ -1,0 +1,30 @@
+{
+  "name": "@get-caramel/customer-mobile",
+  "version": "0.1.0",
+  "private": true,
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "dev": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web",
+    "lint": "echo 'no lint yet'",
+    "test": "pnpm exec tsc -p tsconfig.json --noEmit && node --test test/**/*.test.js"
+  },
+  "dependencies": {
+    "@expo/metro-runtime": "~3.2.3",
+    "@get-caramel/types": "workspace:*",
+    "@react-native-async-storage/async-storage": "^1.24.0",
+    "expo": "^51.0.31",
+    "expo-status-bar": "^1.12.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.74.5",
+    "react-native-web": "~0.19.10"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.6",
+    "@types/react": "^18.3.9",
+    "typescript": "^5.6.3"
+  }
+}

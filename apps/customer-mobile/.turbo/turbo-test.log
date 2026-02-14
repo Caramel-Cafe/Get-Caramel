@@ -1,0 +1,16 @@
+
+> @get-caramel/customer-mobile@0.1.0 test C:\Users\siemc\OneDrive\Music\Get Caramel\apps\customer-mobile
+> pnpm exec tsc -p tsconfig.json --noEmit && node --test test/**/*.test.js
+
+✔ auth endpoints are wired to gateway routes (1.9744ms)
+✔ order endpoints include checkout, cart, and customer orders (0.258ms)
+✔ payment endpoints include intent, confirm, and order lookup (0.1961ms)
+✔ client throws API message from parseJson error path (0.1614ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 167.8088

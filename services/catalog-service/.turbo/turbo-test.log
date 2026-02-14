@@ -1,0 +1,21 @@
+
+> @get-caramel/catalog-service@0.1.0 test C:\Users\siemc\OneDrive\Music\Get Caramel\services\catalog-service
+> pnpm build && node --test test/**/*.test.js
+
+
+> @get-caramel/catalog-service@0.1.0 build C:\Users\siemc\OneDrive\Music\Get Caramel\services\catalog-service
+> nest build
+
+✔ onboardVendor adds vendor and listVendors returns it (82.6503ms)
+✔ upsertVendorMenu then getVendorMenu returns updated sections (1.0665ms)
+✔ searchVendors ranks text matches and respects geo radius (4.4256ms)
+✔ nearbyVendors enforces radius and does not include distant vendor (1.3702ms)
+✔ getVendorMenu throws when vendor has no menu (2.1274ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4887.4828

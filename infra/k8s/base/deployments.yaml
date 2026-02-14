@@ -1,0 +1,203 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-service
+  template:
+    metadata:
+      labels:
+        app: auth-service
+    spec:
+      containers:
+        - name: auth-service
+          image: ghcr.io/get-caramel/auth-service:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4001
+          envFrom:
+            - configMapRef:
+                name: get-caramel-config
+            - secretRef:
+                name: get-caramel-secrets
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 4001
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 4001
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalog-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catalog-service
+  template:
+    metadata:
+      labels:
+        app: catalog-service
+    spec:
+      containers:
+        - name: catalog-service
+          image: ghcr.io/get-caramel/catalog-service:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4002
+          envFrom:
+            - configMapRef:
+                name: get-caramel-config
+            - secretRef:
+                name: get-caramel-secrets
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 4002
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 4002
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+        - name: order-service
+          image: ghcr.io/get-caramel/order-service:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4003
+          envFrom:
+            - configMapRef:
+                name: get-caramel-config
+            - secretRef:
+                name: get-caramel-secrets
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 4003
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 4003
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-service
+  template:
+    metadata:
+      labels:
+        app: payment-service
+    spec:
+      containers:
+        - name: payment-service
+          image: ghcr.io/get-caramel/payment-service:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4004
+          envFrom:
+            - configMapRef:
+                name: get-caramel-config
+            - secretRef:
+                name: get-caramel-secrets
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 4004
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 4004
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: delivery-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: delivery-service
+  template:
+    metadata:
+      labels:
+        app: delivery-service
+    spec:
+      containers:
+        - name: delivery-service
+          image: ghcr.io/get-caramel/delivery-service:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4005
+          envFrom:
+            - configMapRef:
+                name: get-caramel-config
+            - secretRef:
+                name: get-caramel-secrets
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 4005
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 4005
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api-gateway
+  template:
+    metadata:
+      labels:
+        app: api-gateway
+    spec:
+      containers:
+        - name: api-gateway
+          image: ghcr.io/get-caramel/api-gateway:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4000
+          envFrom:
+            - configMapRef:
+                name: get-caramel-config
+            - secretRef:
+                name: get-caramel-secrets
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 4000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 4000

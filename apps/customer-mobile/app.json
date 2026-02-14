@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "Get Caramel",
+    "slug": "get-caramel-customer",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": ["**/*"]
+  }
+}

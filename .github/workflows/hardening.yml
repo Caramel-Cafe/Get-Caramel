@@ -1,0 +1,46 @@
+name: Hardening Checks
+
+on:
+  schedule:
+    - cron: "0 4 * * 1"
+  workflow_dispatch:
+
+jobs:
+  hardening:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate baseline secrets policy
+        run: bash ops/security/validate-secrets.sh .env.example --allow-defaults
+
+      - name: Create synthetic release state for DR drill
+        run: |
+          mkdir -p ops/release/state
+          echo "environment=staging" > ops/release/state/staging.txt
+          echo "release_sha=${GITHUB_SHA}" >> ops/release/state/staging.txt
+          echo "deployed_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> ops/release/state/staging.txt
+
+      - name: Run DR drill
+        run: bash ops/dr/drill.sh staging
+
+      - name: Upload DR reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: dr-reports
+          path: ops/dr/reports/*.txt

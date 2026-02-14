@@ -1,0 +1,22 @@
+{
+  "name": "get-caramel",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Multi-vendor food delivery monorepo",
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "load:smoke": "k6 run ops/load/smoke.js",
+    "load:stress": "k6 run ops/load/stress.js",
+    "ops:validate-secrets": "powershell -ExecutionPolicy Bypass -File ops/security/validate-secrets.ps1 -EnvFile .env.example -AllowDefaults",
+    "ops:dr-drill": "powershell -ExecutionPolicy Bypass -File ops/dr/drill.ps1 -TargetEnv staging",
+    "ops:start-backend": "powershell -ExecutionPolicy Bypass -File ops/local/start-backend.ps1"
+  },
+  "devDependencies": {
+    "turbo": "^2.2.3",
+    "typescript": "^5.6.3"
+  }
+}

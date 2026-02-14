@@ -1,0 +1,24 @@
+
+> @get-caramel/api-gateway@0.1.0 test C:\Users\siemc\OneDrive\Music\Get Caramel\services\api-gateway
+> pnpm build && node --test test/**/*.test.js
+
+
+> @get-caramel/api-gateway@0.1.0 build C:\Users\siemc\OneDrive\Music\Get Caramel\services\api-gateway
+> nest build
+
+✔ allows public auth login route without token (14.4745ms)
+✔ allows customer on checkout route (100.168ms)
+✔ blocks vendor owner on admin-only route (2.8776ms)
+✔ requires bearer token on protected route (1.2604ms)
+✔ routes order paths to order service (12.3371ms)
+✔ routes payment paths to payment service (0.5288ms)
+✔ throws for unknown routes (1.1684ms)
+✔ decrements remaining quota and blocks over limit (8.8787ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5096.4206

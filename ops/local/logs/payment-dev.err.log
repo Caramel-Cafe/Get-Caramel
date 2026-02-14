@@ -1,0 +1,20 @@
+(node:28720) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+C:\Users\siemc\OneDrive\Music\Get Caramel\services\payment-service\dist\modules\payment\repository\payment.repository.js:136
+            throw new Error("PaymentRepository requires PostgreSQL readiness for durable operations");
+                  ^
+
+Error: PaymentRepository requires PostgreSQL readiness for durable operations
+    at PaymentRepository.assertReady (C:\Users\siemc\OneDrive\Music\Get Caramel\services\payment-service\dist\modules\payment\repository\payment.repository.js:136:19)
+    at PaymentRepository.loadState (C:\Users\siemc\OneDrive\Music\Get Caramel\services\payment-service\dist\modules\payment\repository\payment.repository.js:22:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PaymentService.onModuleInit (C:\Users\siemc\OneDrive\Music\Get Caramel\services\payment-service\dist\modules\payment\payment.service.js:60:26)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (C:\Users\siemc\OneDrive\Music\Get Caramel\node_modules\.pnpm\@nestjs+core@10.4.22_@nestjs+common@10.4.22_class-transformer@0.5.1_class-validator@0.14.3_re_kwojfgkoyra7qywcfbrd5bt63m\node_modules\@nestjs\core\hooks\on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (C:\Users\siemc\OneDrive\Music\Get Caramel\node_modules\.pnpm\@nestjs+core@10.4.22_@nestjs+common@10.4.22_class-transformer@0.5.1_class-validator@0.14.3_re_kwojfgkoyra7qywcfbrd5bt63m\node_modules\@nestjs\core\nest-application-context.js:234:13)
+    at async NestApplication.init (C:\Users\siemc\OneDrive\Music\Get Caramel\node_modules\.pnpm\@nestjs+core@10.4.22_@nestjs+common@10.4.22_class-transformer@0.5.1_class-validator@0.14.3_re_kwojfgkoyra7qywcfbrd5bt63m\node_modules\@nestjs\core\nest-application.js:100:9)
+    at async NestApplication.listen (C:\Users\siemc\OneDrive\Music\Get Caramel\node_modules\.pnpm\@nestjs+core@10.4.22_@nestjs+common@10.4.22_class-transformer@0.5.1_class-validator@0.14.3_re_kwojfgkoyra7qywcfbrd5bt63m\node_modules\@nestjs\core\nest-application.js:170:13)
+    at async bootstrap (C:\Users\siemc\OneDrive\Music\Get Caramel\services\payment-service\dist\main.js:31:5)
+
+Node.js v24.12.0
+^C
