@@ -39,7 +39,7 @@ export class UserStoreService {
       namespace: "auth-service-users",
       postgresUrl: process.env.AUTH_DATABASE_URL || process.env.DATABASE_URL,
       redisUrl: env.redisUrl,
-      log: (message) => this.logger.log(message),
+      log: (message: string) => this.logger.log(message),
     });
   }
 

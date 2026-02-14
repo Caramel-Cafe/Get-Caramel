@@ -10,6 +10,9 @@ COPY apps ./apps
 COPY packages ./packages
 COPY services ./services
 RUN pnpm install --frozen-lockfile
+RUN pnpm --filter @get-caramel/types build
+RUN pnpm --filter @get-caramel/database build
+RUN pnpm --filter @get-caramel/persistence build
 RUN pnpm --filter "${PACKAGE_NAME}" build
 
 FROM node:20-alpine AS runtime
